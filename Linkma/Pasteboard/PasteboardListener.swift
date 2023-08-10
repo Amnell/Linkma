@@ -18,7 +18,7 @@ class PasteboardListener: ObservableObject {
     func start() {
         guard timer == nil || timer?.isValid == false else { return }
         
-        timer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { [weak self] _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [weak self] _ in
             guard let self else { return }
             if self.lastChangeCount != self.pasteboard.changeCount {
                 self.lastChangeCount = self.pasteboard.changeCount

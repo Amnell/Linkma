@@ -9,6 +9,7 @@ import AppKit
 import UserNotifications
 import Combine
 import SwiftUI
+import LaunchAtLogin
 
 @main
 struct LinkmaApp: App {
@@ -22,8 +23,10 @@ struct LinkmaApp: App {
             Button(action: {
                 openSettingsWindow()
             }, label: {
-                Text("Settings")
+                Text("Rules")
             })
+
+            LaunchAtLogin.Toggle()
 
             Divider()
 

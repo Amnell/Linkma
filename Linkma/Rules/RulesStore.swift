@@ -38,7 +38,13 @@ class RulesStore: ObservableObject {
         try persist()
     }
 
-    func remove(atOffsets: IndexSet) throws {
+    func delete(rule: Rule) throws {
+        if let index = rules.firstIndex(of: rule) {
+            try delete(atOffsets: IndexSet(integer: index))
+        }
+    }
+
+    func delete(atOffsets: IndexSet) throws {
         rules.remove(atOffsets: atOffsets)
         try persist()
     }

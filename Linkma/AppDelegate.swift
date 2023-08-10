@@ -9,17 +9,6 @@ import AppKit
 import UserNotifications
 import Combine
 
-extension URL {
-    init?(rule: Rule, pasteboardItem: PasteboardStringItem) {
-        let urlString = rule.urlString.replacingOccurrences(of: "$0", with: pasteboardItem.string)
-        if let url = URL(string: urlString) {
-            self = url
-        } else {
-            return nil
-        }
-    }
-}
-
 class AppDelegate: NSObject, NSApplicationDelegate {
     var pasteboardListener: PasteboardListener = PasteboardListener()
     var rulesService: RulesStore = RulesStore(userDefaults: .standard)

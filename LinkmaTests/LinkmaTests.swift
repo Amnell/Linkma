@@ -10,29 +10,45 @@ import XCTest
 
 final class LinkmaTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
     func testExample() throws {
-        let regexString: String = "POTATO-\\d"
-        let regex = try! Regex(regexString)
-        let matches = "POTATO-123".matches(of: regex)
-        XCTAssertEqual(matches.count, 1)
-        matches.forEach { match in
-            print(match)
+        do {
+            let something = try "1, 2".replacingGroups(matching: try Regex(#"(\d+), (\d+)"#), with: "$2, $1")
+            XCTAssertEqual(something, "2, 1")
+        }
+
+        do {
+            let something = try "1, 2, 3, 4, 5, 6, 7, 8, 9".replacingGroups(matching: try Regex(#"(\d+), (\d+), (\d+), (\d+), (\d+), (\d+), (\d+), (\d+), (\d+)"#), with: "$9, $8, $7, $6, $5, $4, $3, $2, $1")
+            XCTAssertEqual(something, "9, 8, 7, 6, 5, 4, 3, 2, 1")
+        }
+
+        do {
+            let something = try "1, 2, 3, 4, 5, 6, 7, 8, 9, 10".replacingGroups(matching: try Regex(#"(\d+), (\d+), (\d+), (\d+), (\d+), (\d+), (\d+), (\d+), (\d+), (\d+)"#), with: "$10, $9, $8, $7, $6, $5, $4, $3, $2, $1")
+            XCTAssertEqual(something, "10, 9, 8, 7, 6, 5, 4, 3, 2, 1")
+        }
+
+        do {
+            let something = try "IMAG-123".replacingGroups(matching: try Regex(#"^(IMAG-\d+)"#), with: "http://google.com/?q=$1")
+            XCTAssertEqual(something, "http://google.com/?q=IMAG-123")
+        }
+
+        do {
+            let something = try "IMAG-123".replacingGroups(matching: try Regex(#"^IMAG-\d+"#), with: "http://google.com/?q=$0")
+            XCTAssertEqual(something, "http://google.com/?q=IMAG-123")
+        }
+
+        do {
+            let something = try "IMAG-123".replacingGroups(matching: try Regex(#"^IMAG-(\d+)"#), with: "http://google.com/?q=$0-$1")
+            XCTAssertEqual(something, "http://google.com/?q=IMAG-123-123")
+        }
+
+        do {
+            let something = try "IMAG-123".replacingGroups(matching: try Regex("^IMAG-\\d+"), with: "http://google.com/?q=$0")
+            XCTAssertEqual(something, "http://google.com/?q=IMAG-123")
+        }
+
+        do {
+            let something = try "IMAG-123".replacingGroups(matching: try Regex(#"IMAG-\d+"#), with: "https://ikano-bank.atlassian.net/browse/$0")
+            XCTAssertEqual(something, "https://ikano-bank.atlassian.net/browse/IMAG-123")
         }
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }

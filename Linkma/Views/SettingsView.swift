@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import LaunchAtLogin
 
 struct SettingsView: View {
     @EnvironmentObject var rulesService: RulesStore
@@ -13,19 +14,21 @@ struct SettingsView: View {
 
     var body: some View {
         NavigationSplitView {
-            List(selection: $selectedRule) {
-                ForEach($rulesService.rules, id: \.uuid, editActions: .move) { $rule in
-                    NavigationLink(value: rule) {
-                        RuleRowView(rule: rule)
+            VStack {
+                List(selection: $selectedRule) {
+                    ForEach($rulesService.rules, id: \.uuid, editActions: .move) { $rule in
+                        NavigationLink(value: rule) {
+                            RuleRowView(rule: rule)
+                        }
+                        .id(rule.uuid)
                     }
-                    .id(rule.uuid)
+                    .onMove { indices, destination in
+                        rulesService.rules.move(fromOffsets: indices, toOffset: destination)
+                        try? rulesService.persist()
+                    }
                 }
-                .onMove { indices, destination in
-                    rulesService.rules.move(fromOffsets: indices, toOffset: destination)
-                    try? rulesService.persist()
-                }
+                .listStyle(.inset)
             }
-            .listStyle(.inset)
             .toolbar {
                 ToolbarItem {
                     Spacer()
@@ -40,9 +43,11 @@ struct SettingsView: View {
                     })
                 }
             }
+            .navigationSplitViewStyle(.prominentDetail)
+            .navigationSplitViewColumnWidth(250)
         } detail: {
             if let selectedRule, rulesService.rules.contains(where: { $0.uuid == selectedRule.uuid }) {
-                RuleView(rule: selectedRule)
+                RuleView(rule: $selectedRule.withDefault(Rule.empty()))
                     .id(selectedRule)
             } else {
                 VStack {
@@ -79,10 +84,9 @@ struct RuleRowView: View {
             VStack(alignment: .leading) {
                 Text(rule.name ?? "Unnamed")
                 Text(rule.regex)
+                    .font(.subheadline)
                 Text(rule.urlString)
                     .font(.subheadline)
-                Text(rule.uuid.uuidString)
-                    .font(.footnote)
             }
         }
     }

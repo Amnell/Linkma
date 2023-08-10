@@ -19,11 +19,15 @@
 		119AB7EE2A817F7F002E19E2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119AB7ED2A817F7F002E19E2 /* SettingsView.swift */; };
 		119AB7F22A8216BA002E19E2 /* PasteboardStringItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119AB7F12A8216BA002E19E2 /* PasteboardStringItem.swift */; };
 		119AB7F62A8242B5002E19E2 /* RuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119AB7F52A8242B5002E19E2 /* RuleView.swift */; };
+		11E75FEC2A84FD1B00753BBD /* String+Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E75FEB2A84FD1B00753BBD /* String+Regex.swift */; };
+		11E75FEF2A85055400753BBD /* URL+Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E75FEE2A85055400753BBD /* URL+Rule.swift */; };
 		11FD36A32A82982800B853B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FD36A22A82982800B853B3 /* AppDelegate.swift */; };
 		11FD36A72A829E7400B853B3 /* Browser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FD36A62A829E7400B853B3 /* Browser.swift */; };
 		11FD36A92A829EB800B853B3 /* BrowserOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FD36A82A829EB800B853B3 /* BrowserOptions.swift */; };
 		11FD36AB2A829F3000B853B3 /* Shell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FD36AA2A829F3000B853B3 /* Shell.swift */; };
 		11FD36AD2A836C5900B853B3 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FD36AC2A836C5900B853B3 /* Match.swift */; };
+		11FD36EC2A838C1100B853B3 /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 11FD36EB2A838C1100B853B3 /* LaunchAtLogin */; };
+		11FD36EE2A84BB9C00B853B3 /* Binding+default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FD36ED2A84BB9C00B853B3 /* Binding+default.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,11 +64,14 @@
 		119AB7ED2A817F7F002E19E2 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		119AB7F12A8216BA002E19E2 /* PasteboardStringItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardStringItem.swift; sourceTree = "<group>"; };
 		119AB7F52A8242B5002E19E2 /* RuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleView.swift; sourceTree = "<group>"; };
+		11E75FEB2A84FD1B00753BBD /* String+Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Regex.swift"; sourceTree = "<group>"; };
+		11E75FEE2A85055400753BBD /* URL+Rule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Rule.swift"; sourceTree = "<group>"; };
 		11FD36A22A82982800B853B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11FD36A62A829E7400B853B3 /* Browser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Browser.swift; sourceTree = "<group>"; };
 		11FD36A82A829EB800B853B3 /* BrowserOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserOptions.swift; sourceTree = "<group>"; };
 		11FD36AA2A829F3000B853B3 /* Shell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shell.swift; sourceTree = "<group>"; };
 		11FD36AC2A836C5900B853B3 /* Match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
+		11FD36ED2A84BB9C00B853B3 /* Binding+default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+default.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11FD36EC2A838C1100B853B3 /* LaunchAtLogin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,10 +129,10 @@
 				11FD36A42A8298A900B853B3 /* Views */,
 				119AB7F02A8216A6002E19E2 /* Pasteboard */,
 				119AB7EF2A821667002E19E2 /* Rules */,
-				119AB7EB2A817CC5002E19E2 /* RulesStore.swift */,
+				11E75FED2A85053B00753BBD /* Utilities */,
+				11184F1D2A80F092004AC804 /* Preview Content */,
 				11184F1B2A80F092004AC804 /* Assets.xcassets */,
 				11184F202A80F092004AC804 /* Linkma.entitlements */,
-				11184F1D2A80F092004AC804 /* Preview Content */,
 			);
 			path = Linkma;
 			sourceTree = "<group>";
@@ -157,6 +165,7 @@
 		119AB7EF2A821667002E19E2 /* Rules */ = {
 			isa = PBXGroup;
 			children = (
+				119AB7EB2A817CC5002E19E2 /* RulesStore.swift */,
 				119AB7E92A817802002E19E2 /* Rule.swift */,
 				11FD36AC2A836C5900B853B3 /* Match.swift */,
 			);
@@ -170,6 +179,16 @@
 				119AB7F12A8216BA002E19E2 /* PasteboardStringItem.swift */,
 			);
 			path = Pasteboard;
+			sourceTree = "<group>";
+		};
+		11E75FED2A85053B00753BBD /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				11FD36ED2A84BB9C00B853B3 /* Binding+default.swift */,
+				11E75FEB2A84FD1B00753BBD /* String+Regex.swift */,
+				11E75FEE2A85055400753BBD /* URL+Rule.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		11FD36A42A8298A900B853B3 /* Views */ = {
@@ -207,6 +226,9 @@
 			dependencies = (
 			);
 			name = Linkma;
+			packageProductDependencies = (
+				11FD36EB2A838C1100B853B3 /* LaunchAtLogin */,
+			);
 			productName = Linkma;
 			productReference = 11184F142A80F090004AC804 /* Linkma.app */;
 			productType = "com.apple.product-type.application";
@@ -279,6 +301,9 @@
 				Base,
 			);
 			mainGroup = 11184F0B2A80F090004AC804;
+			packageReferences = (
+				11FD36EA2A838C1100B853B3 /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */,
+			);
 			productRefGroup = 11184F152A80F090004AC804 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -323,11 +348,14 @@
 			files = (
 				119AB7F62A8242B5002E19E2 /* RuleView.swift in Sources */,
 				119AB7EA2A817802002E19E2 /* Rule.swift in Sources */,
+				11E75FEC2A84FD1B00753BBD /* String+Regex.swift in Sources */,
 				11FD36A72A829E7400B853B3 /* Browser.swift in Sources */,
+				11E75FEF2A85055400753BBD /* URL+Rule.swift in Sources */,
 				119AB7EE2A817F7F002E19E2 /* SettingsView.swift in Sources */,
 				11184F182A80F090004AC804 /* LinkmaApp.swift in Sources */,
 				119AB7EC2A817CC5002E19E2 /* RulesStore.swift in Sources */,
 				11FD36A92A829EB800B853B3 /* BrowserOptions.swift in Sources */,
+				11FD36EE2A84BB9C00B853B3 /* Binding+default.swift in Sources */,
 				11FD36AB2A829F3000B853B3 /* Shell.swift in Sources */,
 				119AB7F22A8216BA002E19E2 /* PasteboardStringItem.swift in Sources */,
 				11184F432A80F200004AC804 /* PasteboardListener.swift in Sources */,
@@ -509,7 +537,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = se.forefront.Linkma;
+				PRODUCT_BUNDLE_IDENTIFIER = se.apping.Linkma;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -538,7 +566,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = se.forefront.Linkma;
+				PRODUCT_BUNDLE_IDENTIFIER = se.apping.Linkma;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -556,7 +584,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 13.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = se.forefront.LinkmaTests;
+				PRODUCT_BUNDLE_IDENTIFIER = se.apping.LinkmaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -575,7 +603,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 13.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = se.forefront.LinkmaTests;
+				PRODUCT_BUNDLE_IDENTIFIER = se.apping.LinkmaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -592,7 +620,7 @@
 				DEVELOPMENT_TEAM = 8WDHWQ3DB9;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = se.forefront.LinkmaUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = se.apping.LinkmaUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -609,7 +637,7 @@
 				DEVELOPMENT_TEAM = 8WDHWQ3DB9;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = se.forefront.LinkmaUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = se.apping.LinkmaUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -657,6 +685,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		11FD36EA2A838C1100B853B3 /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/LaunchAtLogin-Modern";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		11FD36EB2A838C1100B853B3 /* LaunchAtLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 11FD36EA2A838C1100B853B3 /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */;
+			productName = LaunchAtLogin;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 11184F0C2A80F090004AC804 /* Project object */;
 }

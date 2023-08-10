@@ -10,7 +10,7 @@ import Foundation
 
 func openMatch(_ match: Match) {
     if let url = match.url {
-        openUrlWithOptions(url, options: match.rule.browserOptions ?? BrowserOptions(browser: .system))
+        openUrlWithOptions(url, options: match.rule.browserOptions)
     }
 }
 
