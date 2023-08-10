@@ -10,3 +10,7 @@ Create regex and browser rules for your clipboard, allowing you to automatically
 * Browser customization
   * Specify what browser you want to open a specific match with
   * Add your desired browser profile to open your link in (only in supported browsers).
+
+<p align="center">
+<img max-width="90%" alt="Screenshot of Linkma app" src="Documentation/Resources/screenshot.png" />
+</p>
