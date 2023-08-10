@@ -1,4 +1,4 @@
-# <img alt="Linkma Icon" src="Linkma/Linkma/Assets.xcassets/AppIcon.appiconset/64-mac.png" /> Linkma
+# <img alt="Linkma Icon" src="Linkma/Assets.xcassets/AppIcon.appiconset/64-mac.png" /> Linkma
 
 Create regex and browser rules for your clipboard, allowing you to automatically create and open URLs from your most often copied strings.
 
