@@ -39,6 +39,7 @@ struct LinkmaApp: App {
         WindowGroup("Settings", id: "settings") {
             SettingsView()
                 .environmentObject(delegate.rulesService)
+                .environmentObject(delegate.pasteboardListener)
         }.windowResizability(.contentSize)
     }
 
